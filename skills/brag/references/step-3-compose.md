@@ -127,8 +127,9 @@ npx hyperframes tts "<narration text or path to script>" \
 ```
 
 If the user wants a different Kokoro voice, run `npx hyperframes tts --list`
-to see the available options. The command above is the voice implementation
-for this PR and should be used directly.
+to see the available options. This is the only supported way to generate
+narration: use the command above directly, do not add provider-selection
+logic or substitute another text-to-speech route.
 
 Wire it into the composition on its own track. Music ducks to 0.12–0.15 for the duration of the voiceover, then returns to its normal level:
 
@@ -136,7 +137,7 @@ Wire it into the composition on its own track. Music ducks to 0.12–0.15 for th
 <audio id="vo" data-start="0" data-track-index="3" data-volume="1" src="assets/voiceover.wav"></audio>
 ```
 
-Scene durations must flex to match the generated audio — check the WAV duration after generation and adjust `data-duration` values accordingly. Do not hardcode scene lengths when voiceover is present; let the voice set the pace.
+The 15-25 second window holds whether or not narration is on. Write the narration script to fit that window. Within the window, scene durations flex to match the generated audio rather than being fixed in advance: check the WAV duration after generation and adjust `data-duration` values accordingly. If the rendered narration overruns the window, cut the script and regenerate; do not stretch the video past 25 seconds to fit it.
 
 ---
 

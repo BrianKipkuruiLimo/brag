@@ -127,9 +127,8 @@ npx hyperframes tts "<narration text or path to script>" \
 ```
 
 If the user wants a different Kokoro voice, run `npx hyperframes tts --list`
-to see the available options. This is the only supported way to generate
-narration: use the command above directly, do not add provider-selection
-logic or substitute another text-to-speech route.
+to see the available options. By default, use the command above to generate
+narration.
 
 Wire it into the composition on its own track. Music ducks to 0.12–0.15 for the duration of the voiceover, then returns to its normal level:
 

@@ -15,13 +15,13 @@ open http://localhost:8000
 node ../scripts/check-docs.mjs
 ```
 
-This verifies local docs links and media paths, plus the gallery count copy.
+This verifies local docs links and media paths.
 
 ## Deploy (GitHub Pages)
 
 Fully self-contained — no build step. In the repo's **Settings → Pages**, set the source to **Deploy from a branch**, branch `main`, folder **`/docs`**.
 
-The gallery videos ship committed: each demo shown (`examples/horse-tinder/`, `examples/fish-flight-school/`, `examples/taxi-for-taxis/`) includes its `brag.mp4`, a `brag.jpg` poster, and a `site.jpg` thumbnail. Heavy composition sources (`brag-output-*/`) are git-ignored.
+The gallery videos ship committed, in two sets. The /brag-slim set is `examples/horse-tinder/`, `examples/fish-flight-school/` and `examples/taxi-for-taxis/`; the /brag --full set is `examples/full/<slug>/`, which keeps the original version of each site next to the video made from it. Each demo includes its `brag.mp4`, a `brag.jpg` poster, and a `site.jpg` thumbnail. Heavy composition sources (`brag-output-*/`) are git-ignored.
 
 ## Adding / updating a gallery example
 

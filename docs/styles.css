@@ -939,3 +939,198 @@ button { font: inherit; cursor: pointer; }
   }
   .card:hover { transform: none; }
 }
+
+/* === Gallery: one set per command === */
+.gallery-set { max-width: var(--max-page); margin: 0 auto; }
+.gallery-set + .gallery-set {
+  margin-top: clamp(64px, 8vw, 110px);
+  padding-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--dark-rule);
+}
+.set-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 32px;
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+.set-name { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px; font-weight: 400; }
+.set-cmd {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark-ink);
+}
+.set-tag {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-accent);
+}
+.set-note { margin: 0; max-width: 44ch; font-size: 15px; color: var(--dark-ink-soft); }
+.is-full .set-cmd { color: var(--dark-ink-soft); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .grid-3 { grid-template-columns: minmax(0, 1fr); } }
+
+
+/* === Hero: letsbrag.app box, /brag run for you === */
+.hlb-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.hlb {
+  min-width: 0;
+  background: var(--hero-tint);
+  color: var(--hero-ink);
+  border-radius: var(--radius-md);
+  padding: 18px 18px 16px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 22px 50px -24px oklch(20% 0.08 var(--hue) / 0.6);
+}
+.hlb ::selection { background: var(--hero-bg); color: var(--hero-ink); }
+.hlb-title {
+  margin: 0;
+  font-size: clamp(24px, 2vw, 30px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: lowercase;
+}
+.hlb-title em {
+  font-style: italic;
+  background: var(--hero-ink);
+  color: var(--hero-bg);
+  padding: 0 0.08em 0.02em 0.04em;
+  white-space: nowrap;
+}
+.hlb-copy {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--hero-ink-soft);
+  text-wrap: pretty;
+}
+.hlb-copy code {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.92em;
+  color: var(--hero-ink);
+}
+.hlb-go {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 16px 0 18px;
+  border-radius: calc(var(--radius-md) - 4px);
+  background: var(--hero-ink);
+  color: var(--hero-tint);
+  text-decoration: none;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: background 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+.hlb-go svg { width: 18px; height: 18px; flex: 0 0 18px; color: oklch(72% 0.18 var(--hue)); transition: transform 220ms var(--ease-out); }
+.hlb-go:hover { background: oklch(24% 0.07 var(--hue)); }
+.hlb-go:hover svg { transform: translateX(3px); }
+.hlb-go:active { transform: translateY(1px); }
+.hlb-go:focus-visible { outline: 3px solid var(--hero-ink); outline-offset: 3px; }
+.hlb-facts {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.hlb-facts li {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hero-ink);
+  border: 1.5px solid var(--hero-ink);
+  border-radius: 999px;
+  padding: 4px 9px 3px;
+}
+
+/* Below desktop: the box stacks under the install commands, never beside them */
+@media (max-width: 1024px) {
+  .hero-foot { grid-template-columns: minmax(0, 1fr); }
+  .hlb { justify-self: start; width: 100%; max-width: 440px; }
+  .hero-meta { text-align: left; justify-self: start; }
+}
+@media (max-width: 720px) {
+  .hlb { transform: none; max-width: none; }
+}
+
+/* Desktop: one two-column hero sized to the window. Left: headline, subline, install.
+   Right rail: the video card with the letsbrag.app box under it. Both rows share
+   the rail through subgrid, and the headline and video scale with viewport height
+   so the whole set fits a laptop screen. */
+@media (min-width: 1025px) {
+  .hero {
+    --rail: clamp(300px, 24vw, 360px);
+    grid-template-columns: minmax(0, 1fr) var(--rail);
+    column-gap: clamp(40px, 5vw, 96px);
+    row-gap: clamp(20px, 3.4svh, 44px);
+    padding-inline: max(clamp(20px, 3vw, 40px), calc((100% - var(--max-page)) / 2));
+  }
+  .topbar { grid-column: 1 / -1; }
+  .hero-main {
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    column-gap: normal;
+    max-width: none;
+    margin: 0;
+  }
+  .hero-headline { font-size: clamp(64px, min(12vw, 17svh), 200px); }
+  .hero-sub { margin-top: clamp(30px, 4.6svh, 44px); }
+  .hero-video {
+    width: clamp(200px, calc((100svh - 450px) * 0.5625), 100%);
+    justify-self: center;
+  }
+  .hero-foot {
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    grid-template-rows: auto auto;
+    column-gap: normal;
+    row-gap: 14px;
+    align-items: end;
+  }
+  .hero-foot .install-stack { grid-column: 1; grid-row: 1; }
+  .hero-foot .hero-meta { grid-column: 1; grid-row: 2; justify-self: start; text-align: left; max-width: none; }
+  .hlb { grid-column: 2; grid-row: 1 / span 2; align-self: end; }
+}
+
+/* === Install blocks: keep command text clear of the copy button === */
+/* The <pre> reserves a lane for the button (wide enough for "copied"); the <code> scrolls inside it. */
+.install,
+.slim-install .install { padding-right: 92px; }
+@media (max-width: 480px) {
+  .install,
+  .slim-install .install { padding-left: 18px; padding-right: 84px; }
+}
+
+/* === Hero video controls: one line on narrow cards === */
+.hero-mute { white-space: nowrap; }
+@media (max-width: 480px) {
+  .hero-controls { right: 10px; bottom: 10px; gap: 6px; }
+  .hero-playback { width: 32px; height: 32px; flex-basis: 32px; }
+  .hero-mute { gap: 6px; padding: 7px 10px 7px 8px; font-size: 10px; letter-spacing: 0.04em; }
+  .hero-mute[aria-pressed="false"] .hero-mute-label::after { font-size: 10px; letter-spacing: 0.04em; }
+  .hero-control svg { width: 14px; height: 14px; }
+}

@@ -9,20 +9,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const docsDir = path.join(root, "docs");
 const indexPath = path.join(docsDir, "index.html");
 
-const numberWords = new Map([
-  ["zero", 0],
-  ["one", 1],
-  ["two", 2],
-  ["three", 3],
-  ["four", 4],
-  ["five", 5],
-  ["six", 6],
-  ["seven", 7],
-  ["eight", 8],
-  ["nine", 9],
-  ["ten", 10],
-]);
-
 const failures = [];
 const html = await readFile(indexPath, "utf8");
 
@@ -40,12 +26,6 @@ function localPathFor(value) {
   return path.join(docsDir, clean);
 }
 
-function parseCount(value) {
-  const normalized = value.toLowerCase();
-  if (/^\d+$/.test(normalized)) return Number(normalized);
-  return numberWords.get(normalized);
-}
-
 for (const match of html.matchAll(/\b(?:src|href|poster)=["']([^"']+)["']/g)) {
   const reference = match[1];
   if (!isLocalReference(reference)) continue;
@@ -60,20 +40,6 @@ const galleryVideos = [
   ...html.matchAll(/<video\b[^>]*class=["'][^"']*\bbrag-video\b[^"']*["'][\s\S]*?<\/video>/g),
 ];
 const galleryCount = galleryVideos.length;
-
-const galleryCopy = html.match(/>([^<>]*?)\s+real projects\s+.\s+([^<>]*?)\s+real brags</i);
-if (!galleryCopy) {
-  failures.push("Could not find gallery count copy.");
-} else {
-  const projectCount = parseCount(galleryCopy[1].trim());
-  const bragCount = parseCount(galleryCopy[2].trim());
-
-  if (projectCount !== galleryCount || bragCount !== galleryCount) {
-    failures.push(
-      `Gallery copy says ${galleryCopy[1].trim()} projects and ${galleryCopy[2].trim()} brags, but ${galleryCount} brag videos are listed.`,
-    );
-  }
-}
 
 for (const video of galleryVideos) {
   const tag = video[0];

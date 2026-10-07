@@ -19,7 +19,18 @@ This verifies local docs links and media paths.
 
 ## Deploy (GitHub Pages)
 
-Fully self-contained — no build step. In the repo's **Settings → Pages**, set the source to **Deploy from a branch**, branch `main`, folder **`/docs`**.
+Fully self-contained — no build step. In the repo's **Settings → Pages**, set the source to **Deploy from a branch**, branch `main`, folder **`/docs`**. The custom domain is `brag.co.ke` (`CNAME` is already in this folder).
+
+Before enabling the custom domain, point the domain's apex (`@`) to GitHub Pages with these four A records:
+
+| Type | Host | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+
+Remove any conflicting A/AAAA records for `@`. DNS changes can take time to propagate. Once the records resolve, GitHub Pages can issue HTTPS for the domain. An optional `www` alias can use a CNAME record with host `www` and value `latent-spaces.github.io`.
 
 The gallery videos ship committed, in two sets. The /brag-slim set is `examples/horse-tinder/`, `examples/fish-flight-school/` and `examples/taxi-for-taxis/`; the /brag --full set is `examples/full/<slug>/`, which keeps the original version of each site next to the video made from it. Each demo includes its `brag.mp4`, a `brag.jpg` poster, and a `site.jpg` thumbnail. Heavy composition sources (`brag-output-*/`) are git-ignored.
 

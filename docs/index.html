@@ -1,272 +1,219 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>brag — you built it. now brag.</title>
-<meta name="description" content="An agent skill that turns the project you created into a twenty-second launch video. One command. Postable everywhere." />
-<meta name="theme-color" content="#e26a3a" />
-<meta property="og:title" content="brag — you built it. now brag." />
-<meta property="og:description" content="An agent skill that turns the project you created into a short, postable launch video." />
-<meta property="og:type" content="website" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e7">
+  <meta name="description" content="Turn the thing you built into the thing everyone sees. /brag makes a polished, shareable launch video from your project.">
+  <meta property="og:title" content="/brag — your work deserves a better exit">
+  <meta property="og:description" content="A launch video for the thing you just built. One command, made with your coding agent.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero.png">
+  <title>/brag — your work deserves a better exit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<a class="skip-link" href="#main">skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="hero">
-  <div class="topbar">
-    <span class="mark">/brag</span>
-    <a class="slim-pill" href="#slim"><span class="slim-pill-tag">new</span><span class="slim-pill-text">/brag-slim<span class="slim-pill-sep" aria-hidden="true"> · </span><span class="slim-pill-tagline">the same /brag, rebuilt lean</span></span><svg class="slim-pill-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-    <nav aria-label="primary">
-      <a href="#examples">examples</a>
-      <a href="#install">install</a>
-      <a href="https://letsbrag.app" target="_blank" rel="noopener">web app</a>
-      <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">github</a>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="brag home"><span class="wordmark-mark">b.</span><span>/brag</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#work">The proof</a>
+      <a href="#install">Install</a>
     </nav>
-  </div>
+    <a class="nav-cta" href="#install">Make your brag <span aria-hidden="true">↗</span></a>
+  </header>
 
-  <div class="hero-main">
-    <div class="hero-body">
-      <h1 class="hero-headline">you built it.<br/>now <span class="emph">brag.</span></h1>
-      <p class="hero-sub">An agent skill that turns the project you created into a <strong>twenty-second launch video</strong>. One command. Music, motion, share copy included.</p>
-    </div>
-    <aside class="hero-video" aria-label="the brag-about-brag video">
-      <video
-        id="hero-vid"
-        class="hero-video-media"
-        src="assets/brag-about-brag.mp4"
-        poster="assets/hero-poster.jpg"
-        muted
-        loop
-        playsinline
-        preload="auto"
-      ></video>
-      <div class="hero-controls">
-        <button id="hero-playback" class="hero-control hero-playback" type="button" aria-label="play brag video" title="play brag video" data-mode="play">
-          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M6 5h4v14H6zm8 0h4v14h-4z"/>
-          </svg>
-        </button>
-        <button id="hero-mute" class="hero-control hero-mute" type="button" aria-label="unmute brag video" aria-pressed="true">
-          <svg class="icon-muted" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3 9v6h4l5 4V5L7 9H3zm13.59 3l2.7-2.7-1.41-1.42L15.17 10.6 12.46 7.88l-1.41 1.41 2.71 2.71-2.71 2.71 1.41 1.41 2.71-2.7 2.71 2.7 1.41-1.41-2.7-2.7z"/>
-          </svg>
-          <svg class="icon-sound" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3 9v6h4l5 4V5L7 9H3zm10.5 3a4.5 4.5 0 00-2.5-4.03v8.05A4.5 4.5 0 0013.5 12zm-2.5-9v2.06A7 7 0 0117 12a7 7 0 01-6 6.92V21A9 9 0 0019 12 9 9 0 0011 3z"/>
-          </svg>
-          <span class="hero-mute-label">tap for sound</span>
-        </button>
-      </div>
-    </aside>
-  </div>
-
-  <div class="hero-foot" id="install">
-    <div class="install-stack"><span class="install-label">claude code · includes /brag-slim</span><pre class="install" aria-label="Claude Code install command"><span class="copy-wrap"><button class="copy" type="button" data-copy="/plugin marketplace add latent-spaces/brag&#10;/plugin install brag@brag">copy</button></span><code><span class="prompt">$</span> /plugin marketplace add latent-spaces/brag
-<span class="prompt">$</span> /plugin install brag@brag</code></pre><span class="install-label">any other agent</span><pre class="install" aria-label="any-agent install command"><span class="copy-wrap"><button class="copy" type="button" data-copy="npx skills add https://github.com/latent-spaces/brag --skill brag">copy</button></span><code><span class="prompt">$</span> npx skills add https://github.com/latent-spaces/brag --skill brag</code></pre></div>
-    <aside class="hlb" aria-labelledby="hlb-title">
-      <h2 class="hlb-title" id="hlb-title">we run /brag <em>for you.</em></h2>
-      <p class="hlb-copy">Want a video without running <code>/brag</code> yourself? Paste your site's link and we make it.</p>
-      <a class="hlb-go" href="https://letsbrag.app" target="_blank" rel="noopener"><span>open letsbrag.app</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="hlb-sr">(opens in a new tab)</span></a>
-      <ul class="hlb-facts"><li>no setup</li><li>no subscription</li><li>pay once</li></ul>
-    </aside>
-    <div class="hero-meta"><span class="dot" aria-hidden="true"></span>plays well with all agents · made by <a href="https://github.com/shunithaviv" style="color:inherit;">@shunithaviv</a></div>
-  </div>
-</header>
-
-<main id="main">
-  <section class="slim" id="slim" aria-labelledby="slim-title">
-    <div class="slim-inner">
-      <div class="slim-copy">
-        <h2 class="slim-title" id="slim-title">
-          <span class="slim-name"><span class="slim-cmd">/brag-slim</span><span class="slim-new">new</span></span>
-          <span class="slim-tagline">the same /brag,<br/><em>rebuilt lean</em><br/>for opus 5.5.</span>
-        </h2>
-
-        <p class="slim-ask">
-          <span class="slim-ask-lead">Just tell Opus 5.5:</span>
-          <span class="slim-prompt"><span class="prompt" aria-hidden="true">&gt;</span> let's /brag about this.<span class="slim-caret" aria-hidden="true"></span></span>
-        </p>
-
-        <p class="slim-lede">No Hyperframes, no bundled assets, same creative rules.</p>
-
-        <p class="slim-switch">On Opus 5.5, <code>/brag</code> switches to <code>/brag-slim</code> automatically. Want the classic Hyperframes workflow? Run <code>/brag --full</code>.</p>
-
-        <div class="install-stack slim-install"><span class="install-label">install with one command</span><pre class="install" aria-label="/brag-slim install command"><span class="copy-wrap"><button class="copy" type="button" data-copy="npx skills add https://github.com/latent-spaces/brag --skill brag-slim">copy</button></span><code><span class="prompt">$</span> npx skills add https://github.com/latent-spaces/brag --skill brag-slim</code></pre><p class="slim-update">Already on the /brag plugin? It's included from v0.4.0. Run <code>claude plugin update brag</code>.</p></div>
-      </div>
-
-      <figure class="slim-media has-video" style="--slim-ratio: 1 / 1">
-        <div class="slim-screen">
-          <video class="slim-video" src="assets/brag-slim/brag.mp4" poster="assets/brag-slim/brag.jpg" controls playsinline preload="metadata" aria-label="the /brag-slim brag video"></video>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> A tiny launch studio for your coding agent</p>
+        <h1 id="hero-title">Your work<br>deserves a<br><span>better exit.</span></h1>
+        <p class="hero-description">You made the thing. <strong>/brag turns it into the thing everyone sees.</strong> A sharp, shareable launch video, without opening an editor.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#install">Make your first brag <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#work">See what it makes <span aria-hidden="true">↓</span></a>
         </div>
+        <p class="hero-note"><span class="note-star" aria-hidden="true">✳</span> Works where your coding agent works.</p>
+      </div>
+
+      <figure class="hero-reel">
+        <div class="reel-top"><span><span class="reel-dot" aria-hidden="true"></span> A BRAG ABOUT /BRAG</span><span>00:20</span></div>
+        <div class="reel-frame">
+          <video id="hero-vid" class="hero-video" src="assets/brag-about-brag.mp4" poster="assets/hero-poster.jpg" muted loop playsinline preload="metadata" aria-label="A launch video made by /brag about /brag"></video>
+          <div class="hero-controls" aria-label="Video controls">
+            <button id="hero-playback" class="hero-control" type="button" data-mode="play" aria-label="Play brag video" title="Play brag video">
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+            </button>
+            <button id="hero-mute" class="hero-control mute-control" type="button" aria-label="Unmute brag video" aria-pressed="true">
+              <svg class="icon-muted" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.59 3 2.7-2.7-1.41-1.42-2.71 2.72-2.71-2.72-1.41 1.41 2.71 2.71-2.71 2.71 1.41 1.41 2.71-2.7 2.71 2.7 1.41-1.41-2.7-2.7z"/></svg>
+              <svg class="icon-sound" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm10.5 3a4.5 4.5 0 0 0-2.5-4.03v8.05a4.5 4.5 0 0 0 2.5-4.02zm-2.5-9v2.06A7 7 0 0 1 17 12a7 7 0 0 1-6 6.92V21A9 9 0 0 0 19 12a9 9 0 0 0-8-9z"/></svg>
+              <span class="hero-mute-label">Sound off</span>
+            </button>
+          </div>
+        </div>
+        <figcaption><span>MADE WITH /BRAG</span><span>YES, REALLY.</span></figcaption>
       </figure>
-    </div>
-  </section>
 
-  <section class="gallery" id="examples" aria-labelledby="gallery-title">
-    <div class="gallery-head">
-      <div>
-        <p class="gallery-eyebrow">three projects · two ways to brag</p>
-        <h2 class="gallery-title" id="gallery-title">what twenty<br/>seconds of <em>brag</em><br/>looks like.</h2>
-      </div>
-      <p class="gallery-note">Tap play to watch with sound. The thumbnail opens the site each brag was made from.</p>
-    </div>
+      <div class="hero-stamp" aria-hidden="true"><span>POST<br>THE<br>THING</span><span class="stamp-arrow">↗</span></div>
+      <div class="hero-bottom"><span>FOR THE OPEN-TABS-AND-OPEN-ISSUES CROWD</span><span>SCROLL TO SEE THE RECEIPTS ↓</span></div>
+    </section>
 
-    <div class="gallery-set" aria-labelledby="set-slim">
-      <div class="set-head">
-        <h3 class="set-name" id="set-slim"><span class="set-cmd">/brag-slim</span><span class="set-tag">opus 5.5 · the default</span></h3>
-        <p class="set-note">Everything built by the model, with the tools already on your machine.</p>
+    <section class="ticker" aria-label="The brag process">
+      <div class="ticker-track" aria-hidden="true">
+        <span>YOU BUILD IT</span><span class="ticker-star">✳</span><span>/BRAG GETS IT</span><span class="ticker-star">✳</span><span>THE INTERNET SEES IT</span><span class="ticker-star">✳</span><span>YOU BUILD IT</span><span class="ticker-star">✳</span><span>/BRAG GETS IT</span><span class="ticker-star">✳</span><span>THE INTERNET SEES IT</span><span class="ticker-star">✳</span>
       </div>
-      <div class="grid">
-      <article class="card" data-place="feature">
-        <div class="card-media">
-          <video
-            class="brag-video"
-            src="examples/horse-tinder/brag.mp4"
-            poster="examples/horse-tinder/brag.jpg"
-            preload="metadata"
-            playsinline
-            controls
-            aria-label="horse tinder brag video"
-          ></video>
-        </div>
-        <div class="card-cap">
-          <a class="site-link" href="examples/horse-tinder/" target="_blank" rel="noopener" aria-label="open the horse tinder site"><img src="examples/horse-tinder/site.jpg" alt="" loading="lazy"></a>
-          <span class="cap-text"><span class="num">01</span><span class="card-name">horse tinder</span><span class="cap-cat">dating</span></span>
-        </div>
-      </article>
-      <article class="card" data-place="tall">
-        <div class="card-media">
-          <video
-            class="brag-video"
-            src="examples/fish-flight-school/brag.mp4"
-            poster="examples/fish-flight-school/brag.jpg"
-            preload="metadata"
-            playsinline
-            controls
-            aria-label="fish flight school brag video"
-          ></video>
-        </div>
-        <div class="card-cap">
-          <a class="site-link" href="examples/fish-flight-school/" target="_blank" rel="noopener" aria-label="open the fish flight school site"><img src="examples/fish-flight-school/site.jpg" alt="" loading="lazy"></a>
-          <span class="cap-text"><span class="num">02</span><span class="card-name">fish flight school</span><span class="cap-cat">education</span></span>
-        </div>
-      </article>
-      <article class="card" data-place="right">
-        <div class="card-media">
-          <video
-            class="brag-video"
-            src="examples/taxi-for-taxis/brag.mp4"
-            poster="examples/taxi-for-taxis/brag.jpg"
-            preload="metadata"
-            playsinline
-            controls
-            aria-label="taxi for taxis brag video"
-          ></video>
-        </div>
-        <div class="card-cap">
-          <a class="site-link" href="examples/taxi-for-taxis/" target="_blank" rel="noopener" aria-label="open the taxi for taxis site"><img src="examples/taxi-for-taxis/site.jpg" alt="" loading="lazy"></a>
-          <span class="cap-text"><span class="num">03</span><span class="card-name">taxi for taxis</span><span class="cap-cat">mobility</span></span>
-        </div>
-      </article>
+    </section>
 
-      <article class="card is-cta" data-place="half">
-        <div class="card-media">
-          <span class="cta-word">your<br/>brag<br/>here</span>
-        </div>
-        <div class="card-cap">
-          <a class="site-link" href="#install" aria-label="install /brag"><span>your<br/>site</span></a>
-          <span class="cap-text"><span class="num">04</span><span class="card-name">your project</span><span class="cap-cat">install</span></span>
-        </div>
-      </article>
+    <section class="how section-wrap" id="how" aria-labelledby="how-title">
+      <div class="section-kicker"><span>01 / NO EDITING TIMELINE REQUIRED</span><span>JUST YOUR AGENT, DOING A LITTLE SHOWBIZ</span></div>
+      <div class="how-heading">
+        <h2 id="how-title">From “it works”<br>to <em>“look at this.”</em></h2>
+        <p>You already did the hard part. /brag handles the fun part: finding the story, showing off the details, and making the whole thing feel like a launch.</p>
       </div>
-    </div>
+      <div class="steps">
+        <article class="step">
+          <span class="step-num">01</span>
+          <div class="step-symbol symbol-window" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+          <h3>Point at your project</h3>
+          <p>Run it where your coding agent can see the site and its source. No storyboard homework.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">02</span>
+          <div class="step-symbol symbol-spark" aria-hidden="true">✳</div>
+          <h3>Let /brag find the hook</h3>
+          <p>It picks the angle, the moments, the music, and the right amount of main-character energy.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">03</span>
+          <div class="step-symbol symbol-play" aria-hidden="true"><span>▶</span></div>
+          <h3>Drop the link. Collect compliments.</h3>
+          <p>Get a ready-to-share video and the words to post with it. Go be insufferably proud.</p>
+        </article>
+      </div>
+    </section>
 
-    <div class="gallery-set is-full" aria-labelledby="set-full">
-      <div class="set-head">
-        <h3 class="set-name" id="set-full"><span class="set-cmd">/brag --full</span><span class="set-tag">hyperframes · the classic</span></h3>
-        <p class="set-note">The original workflow, with bundled assets. Made from the first versions of the same three sites.</p>
-      </div>
-      <div class="grid grid-3">
-      <article class="card">
-        <div class="card-media">
-          <video
-            class="brag-video"
-            src="examples/full/horse-tinder/brag.mp4"
-            poster="examples/full/horse-tinder/brag.jpg"
-            preload="metadata"
-            playsinline
-            controls
-            aria-label="horse tinder brag video"
-          ></video>
+    <section class="proof" id="work" aria-labelledby="work-title">
+      <div class="proof-inner">
+        <div class="section-kicker light"><span>02 / ENOUGH TALK</span><span>THESE STARTED AS PROJECTS, TOO</span></div>
+        <div class="proof-heading">
+          <h2 id="work-title">Proof, not<br><em>promises.</em></h2>
+          <p>Six tiny launches. Three very different projects. Made by /brag, not by a video team.</p>
         </div>
-        <div class="card-cap">
-          <a class="site-link" href="examples/full/horse-tinder/" target="_blank" rel="noopener" aria-label="open the horse tinder site"><img src="examples/full/horse-tinder/site.jpg" alt="" loading="lazy"></a>
-          <span class="cap-text"><span class="num">01</span><span class="card-name">horse tinder</span><span class="cap-cat">dating</span></span>
+        <div class="work-label"><span class="work-mark">A</span><span><strong>/brag-slim</strong><small>LEANER SETUP · SAME BIG ENTRANCE</small></span><span class="label-line"></span></div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-video">
+              <video class="brag-video" src="examples/horse-tinder/brag.mp4" poster="examples/horse-tinder/brag.jpg" preload="none" playsinline controls aria-label="Horse Tinder launch video"></video>
+            </div>
+            <div class="project-caption"><span>01</span><h3>Horse Tinder</h3><a href="examples/horse-tinder/" aria-label="Visit Horse Tinder site">↗</a></div>
+            <p>Dating, but make it neigh.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-video">
+              <video class="brag-video" src="examples/fish-flight-school/brag.mp4" poster="examples/fish-flight-school/brag.jpg" preload="none" playsinline controls aria-label="Fish Flight School launch video"></video>
+            </div>
+            <div class="project-caption"><span>02</span><h3>Fish Flight School</h3><a href="examples/fish-flight-school/" aria-label="Visit Fish Flight School site">↗</a></div>
+            <p>Finally, fish can fly coach.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-video">
+              <video class="brag-video" src="examples/taxi-for-taxis/brag.mp4" poster="examples/taxi-for-taxis/brag.jpg" preload="none" playsinline controls aria-label="Taxi for Taxis launch video"></video>
+            </div>
+            <div class="project-caption"><span>03</span><h3>Taxi for Taxis</h3><a href="examples/taxi-for-taxis/" aria-label="Visit Taxi for Taxis site">↗</a></div>
+            <p>A ride-hailing app. For taxis.</p>
+          </article>
         </div>
-      </article>
-      <article class="card">
-        <div class="card-media">
-          <video
-            class="brag-video"
-            src="examples/full/fish-flight-school/brag.mp4"
-            poster="examples/full/fish-flight-school/brag.jpg"
-            preload="metadata"
-            playsinline
-            controls
-            aria-label="fish flight school brag video"
-          ></video>
-        </div>
-        <div class="card-cap">
-          <a class="site-link" href="examples/full/fish-flight-school/" target="_blank" rel="noopener" aria-label="open the fish flight school site"><img src="examples/full/fish-flight-school/site.jpg" alt="" loading="lazy"></a>
-          <span class="cap-text"><span class="num">02</span><span class="card-name">fish flight school</span><span class="cap-cat">education</span></span>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-media">
-          <video
-            class="brag-video"
-            src="examples/full/taxi-for-taxis/brag.mp4"
-            poster="examples/full/taxi-for-taxis/brag.jpg"
-            preload="metadata"
-            playsinline
-            controls
-            aria-label="taxi for taxis brag video"
-          ></video>
-        </div>
-        <div class="card-cap">
-          <a class="site-link" href="examples/full/taxi-for-taxis/" target="_blank" rel="noopener" aria-label="open the taxi for taxis site"><img src="examples/full/taxi-for-taxis/site.jpg" alt="" loading="lazy"></a>
-          <span class="cap-text"><span class="num">03</span><span class="card-name">taxi for taxis</span><span class="cap-cat">mobility</span></span>
-        </div>
-      </article>
-      </div>
-    </div>
-  </section>
 
-  <section class="outro" aria-labelledby="outro-title">
-    <div class="outro-inner">
-      <h2 class="outro-headline" id="outro-title">now go <em>brag</em>.</h2>
-      <div class="outro-grid">
-        <p class="outro-meta">we used <code>/brag</code> to brag about <code>/brag</code>. the twenty-second video looping in the top-right corner of this page was made by the skill itself, on this very project. that's the demo.</p>
-        <div class="outro-actions">
-          <div class="install-stack"><span class="install-label">claude code</span><pre class="install" aria-label="Claude Code install command"><span class="copy-wrap"><button class="copy" type="button" data-copy="/plugin marketplace add latent-spaces/brag&#10;/plugin install brag@brag">copy</button></span><code><span class="prompt">$</span> /plugin marketplace add latent-spaces/brag
-<span class="prompt">$</span> /plugin install brag@brag</code></pre><span class="install-label">any other agent</span><pre class="install" aria-label="any-agent install command"><span class="copy-wrap"><button class="copy" type="button" data-copy="npx skills add https://github.com/latent-spaces/brag --skill brag">copy</button></span><code><span class="prompt">$</span> npx skills add https://github.com/latent-spaces/brag --skill brag</code></pre><span class="install-label">just /brag-slim</span><pre class="install" aria-label="/brag-slim install command"><span class="copy-wrap"><button class="copy" type="button" data-copy="npx skills add https://github.com/latent-spaces/brag --skill brag-slim">copy</button></span><code><span class="prompt">$</span> npx skills add https://github.com/latent-spaces/brag --skill brag-slim</code></pre></div>
+        <details class="classic-examples">
+          <summary><span>Want the original big-production version?</span><span class="classic-summary-link">See /brag --full examples <b aria-hidden="true">＋</b></span></summary>
+          <div class="work-label classic-label"><span class="work-mark">B</span><span><strong>/brag --full</strong><small>THE CLASSIC HYPERFRAMES WORKFLOW</small></span><span class="label-line"></span></div>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-video">
+                <video class="brag-video" src="examples/full/horse-tinder/brag.mp4" poster="examples/full/horse-tinder/brag.jpg" preload="none" playsinline controls aria-label="Horse Tinder classic launch video"></video>
+              </div>
+              <div class="project-caption"><span>01</span><h3>Horse Tinder</h3><a href="examples/full/horse-tinder/" aria-label="Visit full Horse Tinder site">↗</a></div>
+              <p>Same horse, bigger production.</p>
+            </article>
+            <article class="project-card">
+              <div class="project-video">
+                <video class="brag-video" src="examples/full/fish-flight-school/brag.mp4" poster="examples/full/fish-flight-school/brag.jpg" preload="none" playsinline controls aria-label="Fish Flight School classic launch video"></video>
+              </div>
+              <div class="project-caption"><span>02</span><h3>Fish Flight School</h3><a href="examples/full/fish-flight-school/" aria-label="Visit full Fish Flight School site">↗</a></div>
+              <p>Maximum lift. Maximum drama.</p>
+            </article>
+            <article class="project-card">
+              <div class="project-video">
+                <video class="brag-video" src="examples/full/taxi-for-taxis/brag.mp4" poster="examples/full/taxi-for-taxis/brag.jpg" preload="none" playsinline controls aria-label="Taxi for Taxis classic launch video"></video>
+              </div>
+              <div class="project-caption"><span>03</span><h3>Taxi for Taxis</h3><a href="examples/full/taxi-for-taxis/" aria-label="Visit full Taxi for Taxis site">↗</a></div>
+              <p>A yellow cab, shot like cinema.</p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="slim-feature section-wrap" aria-labelledby="slim-title">
+      <div class="slim-copy">
+        <div class="section-kicker"><span>03 / NEW, BUT STILL VERY MUCH /BRAG</span></div>
+        <p class="slim-tag">THE SMALLER, FASTER ONE</p>
+        <h2 id="slim-title">Less setup.<br><em>More ta-da.</em></h2>
+        <p><strong>/brag-slim</strong> is the lean build for Opus 5.5. No Hyperframes, no bundled assets. Just the same creative instincts and a video that feels like you.</p>
+        <p class="slim-prompt"><span aria-hidden="true">&gt;</span> let's /brag about this.</p>
+        <a class="text-link" href="#install">Get /brag-slim <span aria-hidden="true">↘</span></a>
+      </div>
+      <figure class="slim-reel">
+        <video src="assets/brag-slim/brag.mp4" poster="assets/brag-slim/brag.jpg" controls playsinline preload="metadata" aria-label="A launch video made with /brag-slim"></video>
+        <figcaption><span>THE LEAN CUT</span><span>OPUS 5.5</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="install-section" id="install" aria-labelledby="install-title">
+      <div class="install-inner">
+        <div class="section-kicker light"><span>04 / YOUR TURN</span><span>FREE · OPEN SOURCE · EXTREMELY POSTABLE</span></div>
+        <h2 id="install-title">Make a little<br><em>noise.</em></h2>
+        <p class="install-intro">Add the skill to your agent. Then go back to your project and ask it to brag.</p>
+        <div class="install-options">
+          <article class="install-option">
+            <p class="install-label">CLAUDE CODE · INCLUDES /BRAG-SLIM</p>
+            <div class="command-box">
+              <code><span>$</span> /plugin marketplace add latent-spaces/brag<br><span>$</span> /plugin install brag@brag</code>
+              <button class="copy" type="button" data-copy="/plugin marketplace add latent-spaces/brag&#10;/plugin install brag@brag">Copy</button>
+            </div>
+          </article>
+          <article class="install-option">
+            <p class="install-label">CURSOR, CODEX, OPENCODE + MORE</p>
+            <div class="command-box">
+              <code><span>$</span> npx skills add https://github.com/latent-spaces/brag --skill brag</code>
+              <button class="copy" type="button" data-copy="npx skills add https://github.com/latent-spaces/brag --skill brag">Copy</button>
+            </div>
+          </article>
         </div>
+        <div class="install-option slim-option">
+          <p class="install-label">JUST THE LEAN VERSION</p>
+          <div class="command-box">
+            <code><span>$</span> npx skills add https://github.com/latent-spaces/brag --skill brag-slim</code>
+            <button class="copy" type="button" data-copy="npx skills add https://github.com/latent-spaces/brag --skill brag-slim">Copy</button>
+          </div>
+        </div>
+        <div class="ready-line"><span class="ready-star" aria-hidden="true">✳</span><span>Then type <code>let's /brag</code> in your project. That's the whole tutorial.</span></div>
       </div>
-      <div class="colophon">
-        <span>made with <a href="https://github.com/latent-spaces/brag" style="color:inherit;">/brag</a> and <a href="https://hyperframes.dev" target="_blank" rel="noopener" style="color:inherit;">hyperframes</a></span>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-</main>
+  <footer class="site-footer">
+    <a class="wordmark footer-mark" href="#" aria-label="brag home"><span class="wordmark-mark">b.</span><span>/brag</span></a>
+    <p>Made by /brag, about /brag. Of course.</p>
+    <div class="footer-links"><a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">GitHub ↗</a><a href="https://letsbrag.app" target="_blank" rel="noopener">Want us to make it? ↗</a></div>
+  </footer>
 
-<script src="main.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>

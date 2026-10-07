@@ -101,10 +101,10 @@
         }, 1600);
       } else {
         // last resort: select the command so the user can copy it manually
-        const pre = btn.closest('.install');
-        if (pre) {
+        const command = btn.closest('.install, .command-box')?.querySelector('code');
+        if (command) {
           const range = document.createRange();
-          range.selectNodeContents(pre.querySelector('code'));
+          range.selectNodeContents(command);
           const sel = window.getSelection();
           sel.removeAllRanges();
           sel.addRange(range);
